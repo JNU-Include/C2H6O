@@ -1,8 +1,10 @@
 package com.example.team1288.c2h6o;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // toolbar 세팅
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
 
         // Button Click Event
         Button.OnClickListener onClickListener = new Button.OnClickListener()
@@ -44,5 +51,6 @@ public class MainActivity extends AppCompatActivity {
         b_goBeer.setOnClickListener(onClickListener);
         Button b_goMakgeolli = (Button) findViewById(R.id.btn_goMakgeoll);
         b_goMakgeolli.setOnClickListener(onClickListener);
+
     }
 }
