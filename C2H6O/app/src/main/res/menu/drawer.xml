@@ -3,16 +3,22 @@
 
     <group android:checkableBehavior="single">
         <item android:id="@+id/list_item_1"
+            android:icon="@drawable/ic_beer"
             android:title="title1"/>
         <item android:id="@+id/list_item_2"
+            android:icon="@drawable/ic_star"
             android:title="list_item_2"/>
         <item android:id="@+id/list_item_3"
+            android:icon="@drawable/ic_arrow"
             android:title="tring/list_item_3"/>
         <item android:id="@+id/list_item_4"
+            android:icon="@drawable/ic_beer"
             android:title="tring/list_item_4"/>
         <item android:id="@+id/list_item_5"
+            android:icon="@drawable/ic_star"
             android:title="string/list_item_5"/>
         <item android:id="@+id/list_item_6"
+            android:icon="@drawable/ic_arrow"
             android:title="tring/list_item_6"/>
     </group>
 </menu>

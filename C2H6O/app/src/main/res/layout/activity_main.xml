@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.team1288.c2h6o.MainActivity">
-    <android.support.v7.widget.Toolbar
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:titleTextColor="#fff"
-        android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="match_parent"
+        tools:context="com.example.team1288.c2h6o.MainActivity"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_goBeer"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme" />
+
+        <Button
+            android:id="@+id/btn_goBeer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="맥주 페이지"
+            tools:layout_editor_absoluteY="156dp"
+            tools:layout_editor_absoluteX="80dp" />
+
+        <Button
+            android:id="@+id/btn_goMakgeoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="막걸리 페이지"
+            tools:layout_editor_absoluteY="156dp"
+            tools:layout_editor_absoluteX="210dp" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="맥주 페이지"
-        tools:layout_editor_absoluteY="156dp"
-        tools:layout_editor_absoluteX="80dp" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_view_header"
+        app:menu="@menu/drawer"/>
 
-    <Button
-        android:id="@+id/btn_goMakgeoll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="막걸리 페이지"
-        tools:layout_editor_absoluteY="156dp"
-        tools:layout_editor_absoluteX="210dp" />
-
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>
