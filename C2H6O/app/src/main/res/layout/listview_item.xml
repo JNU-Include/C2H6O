@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <ImageView
+        android:background="#771595dd"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/alcohol_icon" />
+
+    <LinearLayout
+        android:background="#77ab1856"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical">
+        <TextView
+            android:background="#779515da"
+            android:id="@+id/alcohol_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:text="술 이름"
+            />
+        
+        <LinearLayout
+            android:background="#77155895"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:background="#77ab158a"
+                android:id="@+id/alcohol_degree"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="도수"/>
+            <TextView
+                android:background="#77929a05"
+                android:id="@+id/alohol_price"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="가격"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:background="#77f290c2"
+        android:id="@+id/btn_explain"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
