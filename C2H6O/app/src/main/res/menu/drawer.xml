@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/li_home"
+            android:icon="@drawable/ic_beer"
+            android:title="홈"/>
+        <item android:id="@+id/li_soju"
+            android:icon="@drawable/ic_star"
+            android:title="소주"/>
+        <item android:id="@+id/li_beer"
+            android:icon="@drawable/ic_arrow"
+            android:title="맥주"/>
+        <item android:id="@+id/li_makgeolli"
+            android:icon="@drawable/ic_beer"
+            android:title="막걸리"/>
+        <item android:id="@+id/li_cocktail"
+            android:icon="@drawable/ic_star"
+            android:title="칵테일"/>
+    </group>
+</menu>
