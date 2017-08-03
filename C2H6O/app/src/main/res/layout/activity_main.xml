@@ -9,12 +9,14 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!--주 컨텐츠를 표시할 뷰-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.team1288.c2h6o.MainActivity"
         android:orientation="vertical">
 
+        <!--툴바-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -22,24 +24,30 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme" />
 
-        <Button
-            android:id="@+id/btn_goBeer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="맥주 페이지"
-            tools:layout_editor_absoluteY="156dp"
-            tools:layout_editor_absoluteX="80dp" />
+        <!--주 컨텐츠 페이지 (Fragment)-->
+        <LinearLayout
+            android:id="@+id/l_main_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    <!--<Button-->
+        <!--android:id="@+id/btn_goBeer"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="맥주 페이지"-->
+        <!--tools:layout_editor_absoluteY="156dp"-->
+        <!--tools:layout_editor_absoluteX="80dp" />-->
 
-        <Button
-            android:id="@+id/btn_goMakgeoll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="막걸리 페이지"
-            tools:layout_editor_absoluteY="156dp"
-            tools:layout_editor_absoluteX="210dp" />
+    <!--<Button-->
+        <!--android:id="@+id/btn_goMakgeoll"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="막걸리 페이지"-->
+        <!--tools:layout_editor_absoluteY="156dp"-->
+        <!--tools:layout_editor_absoluteX="210dp" />-->
 
     </LinearLayout>
-
+    <!--드로어에 표시될 뷰 (Navigation)-->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"

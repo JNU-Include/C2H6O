@@ -43,15 +43,24 @@ public class MainActivity extends AppCompatActivity {
                 //Using switch case to identify the ID of the menu item
                 // and then performing relevant action.
                 switch (menuItem.getItemId()) {
-                    case R.id.list_item_1:
+                    case R.id.li_home:
                         //Action Code Here
-                        Toast.makeText(getApplicationContext(), "You Clicked On List Item 1", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "홈", Toast.LENGTH_SHORT).show();
                         return true;
-                    case R.id.list_item_2:
-                        Toast.makeText(getApplicationContext(), "You Clicked On List Item 2", Toast.LENGTH_SHORT).show();
+                    case R.id.li_soju:
+                        Toast.makeText(getApplicationContext(), "소주페이지", Toast.LENGTH_SHORT).show();
                         return true;
+                    case R.id.li_beer:
+                        Toast.makeText(getApplicationContext(), "맥주페이지", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.li_makgeolli:
+                        Toast.makeText(getApplicationContext(), "막걸리페이지", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.li_cocktail:
+                        Toast.makeText(getApplicationContext(), "칵테일페이지", Toast.LENGTH_SHORT).show();
+                        return true;
+
                     default:
-                        Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                         return true;
                 }
 
@@ -90,35 +99,35 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle.syncState();
 
         // Button Click Event
-        Button.OnClickListener onClickListener = new Button.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent;
-                switch (view.getId()) // 클릭된 버튼의 Id에 따라
-                {
-                    case R.id.btn_goBeer: // 맥주 페이지로 이동
-                        intent = new Intent(getApplicationContext(), // 현재 화면의 제어권자
-                                Beer_mainActivity.class); // 다음 넘어갈 클래스 지정
-                        startActivity(intent); // 다음 화면으로 넘어간다
-                        break;
-
-                    case R.id.btn_goMakgeoll: // 막걸리 페이지로 이동
-                        intent = new Intent(getApplicationContext(), Makgeolli_mainActivity.class);
-                        startActivity(intent);
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        };
-
-        // Button 과 onClickListener 연결
-        Button b_goBeer = (Button) findViewById(R.id.btn_goBeer);
-        b_goBeer.setOnClickListener(onClickListener);
-        Button b_goMakgeolli = (Button) findViewById(R.id.btn_goMakgeoll);
-        b_goMakgeolli.setOnClickListener(onClickListener);
+//        Button.OnClickListener onClickListener = new Button.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent;
+//                switch (view.getId()) // 클릭된 버튼의 Id에 따라
+//                {
+//                    case R.id.btn_goBeer: // 맥주 페이지로 이동
+//                        intent = new Intent(getApplicationContext(), // 현재 화면의 제어권자
+//                                Beer_mainActivity.class); // 다음 넘어갈 클래스 지정
+//                        startActivity(intent); // 다음 화면으로 넘어간다
+//                        break;
+//
+//                    case R.id.btn_goMakgeoll: // 막걸리 페이지로 이동
+//                        intent = new Intent(getApplicationContext(), Makgeolli_mainActivity.class);
+//                        startActivity(intent);
+//                        break;
+//
+//                    default:
+//                        break;
+//                }
+//            }
+//        };
+//
+//        // Button 과 onClickListener 연결
+//        Button b_goBeer = (Button) findViewById(R.id.btn_goBeer);
+//        b_goBeer.setOnClickListener(onClickListener);
+//        Button b_goMakgeolli = (Button) findViewById(R.id.btn_goMakgeoll);
+//        b_goMakgeolli.setOnClickListener(onClickListener);
 
     } // end method
 } // end class
