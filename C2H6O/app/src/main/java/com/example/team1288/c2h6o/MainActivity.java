@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Beer_mainFragment()).commit();
                         return true;
                     case R.id.li_makgeolli:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Makgeolli_mainFragment()).commit();
                         return true;
                     case R.id.li_cocktail:
                         return true;
