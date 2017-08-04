@@ -1,6 +1,8 @@
 package com.example.team1288.c2h6o;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -20,9 +22,15 @@ import android.widget.ListView;
  */
 
 public class Beer_mainFragment extends Fragment {
+    SQLiteDatabase db;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.beer_main, container, false);
+
+        DB_Beer db_info_beer = new DB_Beer(getActivity());
+        db = db_info_beer.getDB();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + db_info_beer.getTableName(), null);
 
         ListView listview ;
         ListViewAdapter adapter;
@@ -34,15 +42,21 @@ public class Beer_mainFragment extends Fragment {
         listview = (ListView) rootView.findViewById(R.id.beerlist);
         listview.setAdapter(adapter);
 
-        // 첫 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_beer),
-                "Cass", "15%", "1,500", ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
-        // 두 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_beer),
-                "Asahi", "15%", "1,500", ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
-        // 세 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_beer),
-                "Heineken", "15%", "1,500", ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
+        // db에 저장된 data를 아이템으로 추가
+        cursor.moveToFirst(); // 첫번째 row
+
+        while (!cursor.isAfterLast())
+        {
+            String name = cursor.getString(1);
+            int degree = cursor.getInt(2);
+            int price = cursor.getInt(3);
+
+            // add item
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_beer),
+                name, degree + "%", price + "원", ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
+
+            cursor.moveToNext(); // 다음 row
+        }
 
         // 위에서 생성한 listview에 클릭 이벤트 핸들러 정의.
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

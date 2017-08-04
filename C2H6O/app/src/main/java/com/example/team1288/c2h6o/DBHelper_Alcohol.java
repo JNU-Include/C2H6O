@@ -40,14 +40,14 @@ public class DBHelper_Alcohol extends SQLiteOpenHelper {
         // SQL 쿼리문은 다음과 같은 형태로도 실행 할 수도 있다.
 
         // SQLiteOpenHelper 가 최초 실행 되었을 때
-        String sql = "create table student (" +
-                "_id integer primary key autoincrement, " +
-                "name text, " +
-                "degree integer, " +
-                "price integer, " +
-                "explain text);";
-
-        db.execSQL(sql);
+//        String sql = "create table student (" +
+//                "_id integer primary key autoincrement, " +
+//                "name text, " +
+//                "degree integer, " +
+//                "price integer, " +
+//                "explain text);";
+//
+//        db.execSQL(sql);
     }
 
     @Override

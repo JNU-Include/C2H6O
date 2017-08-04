@@ -31,6 +31,15 @@ public class DB_Beer {
         this.helper = new DBHelper_Alcohol(context, dbName, null, dbVersion);
         db = helper.getWritableDatabase();
 
+        // 테이블 생성
+        db.execSQL("CREATE TABLE " + tableName + " ( "
+                + "_id integer primary key autoincrement, "
+                + "name varchar(50) null, "
+                + "degree int null, "
+                + "price int null, "
+                + "explain text null"
+                + " ) ");
+
         insertData();
     }
 
@@ -57,7 +66,7 @@ public class DB_Beer {
         values.put("degree", degree);
         values.put("price", price);
         values.put("explain", explain);
-        db.insert(dbName, null, values); // 테이블/널컬럼핵/데이터(널컬럼핵=디폴트)
+        db.insert(tableName, null, values); // 테이블/널컬럼핵/데이터(널컬럼핵=디폴트)
         // tip : 마우스를 db.insert에 올려보면 매개변수가 어떤 것이 와야 하는지 알 수 있다.
     }
 
@@ -110,5 +119,8 @@ public class DB_Beer {
                     + ", address : " + address);
         }
     }
+
+    public SQLiteDatabase getDB() { return db; }
+    public String getTableName() { return tableName; }
 }
 
