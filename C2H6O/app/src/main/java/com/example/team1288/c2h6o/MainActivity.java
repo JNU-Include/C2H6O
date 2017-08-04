@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Home_Fragment()).commit();
+
         // toolbar 세팅
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,19 +47,17 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.li_home:
                         //Action Code Here
-                        Toast.makeText(getApplicationContext(), "홈", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Home_Fragment()).commit();
                         return true;
                     case R.id.li_soju:
-                        Toast.makeText(getApplicationContext(), "소주페이지", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.li_beer:
-                        Toast.makeText(getApplicationContext(), "맥주페이지", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Beer_mainFragment()).commit();
                         return true;
                     case R.id.li_makgeolli:
-                        Toast.makeText(getApplicationContext(), "막걸리페이지", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Makgeolli_mainFragment()).commit();
                         return true;
                     case R.id.li_cocktail:
-                        Toast.makeText(getApplicationContext(), "칵테일페이지", Toast.LENGTH_SHORT).show();
                         return true;
 
                     default:
@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                Toast.makeText(getApplicationContext(), "Drawer Opened", Toast.LENGTH_SHORT).show();
             }
 
             //We can perform a particular action when the
@@ -87,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                Toast.makeText(getApplicationContext(), "Drawer Closed", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -108,12 +106,12 @@ public class MainActivity extends AppCompatActivity {
 //                {
 //                    case R.id.btn_goBeer: // 맥주 페이지로 이동
 //                        intent = new Intent(getApplicationContext(), // 현재 화면의 제어권자
-//                                Beer_mainActivity.class); // 다음 넘어갈 클래스 지정
+//                                Beer_mainFragment.class); // 다음 넘어갈 클래스 지정
 //                        startActivity(intent); // 다음 화면으로 넘어간다
 //                        break;
 //
 //                    case R.id.btn_goMakgeoll: // 막걸리 페이지로 이동
-//                        intent = new Intent(getApplicationContext(), Makgeolli_mainActivity.class);
+//                        intent = new Intent(getApplicationContext(), Makgeolli_mainFragment.class);
 //                        startActivity(intent);
 //                        break;
 //

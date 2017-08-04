@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Beer_mainActivity"></activity>
-        <activity android:name=".Makgeolli_mainActivity"></activity>
+        <activity android:name=".Beer_mainFragment"></activity>
+        <activity android:name=".Makgeolli_mainFragment"></activity>
     </application>
 
 </manifest>
