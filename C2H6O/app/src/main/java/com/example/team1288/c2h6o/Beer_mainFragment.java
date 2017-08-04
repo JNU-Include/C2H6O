@@ -57,6 +57,7 @@ public class Beer_mainFragment extends Fragment {
 
             cursor.moveToNext(); // 다음 row
         }
+        cursor.close();
 
         // 위에서 생성한 listview에 클릭 이벤트 핸들러 정의.
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

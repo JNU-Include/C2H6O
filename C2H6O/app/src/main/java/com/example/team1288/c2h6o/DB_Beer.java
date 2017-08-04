@@ -3,6 +3,7 @@ package com.example.team1288.c2h6o;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -32,13 +33,17 @@ public class DB_Beer {
         db = helper.getWritableDatabase();
 
         // 테이블 생성
-        db.execSQL("CREATE TABLE " + tableName + " ( "
+        String sql = "CREATE TABLE " + tableName + " ( "
                 + "_id integer primary key autoincrement, "
                 + "name varchar(50) null, "
                 + "degree int null, "
                 + "price int null, "
                 + "explain text null"
-                + " ) ");
+                + " ) ";
+
+        try {
+            db.execSQL(sql);
+        } catch (SQLException e) { }
 
         insertData();
     }
@@ -53,6 +58,18 @@ public class DB_Beer {
         insert("삿포로", 19, 1900, "삿포로 별 존예임 ㄹㅇ");
         insert("호가든", 20, 2000, "로제 마셔보고 싶다");
         insert("호가든 로제", 21, 2100, "마셔보고 싶어서 넣어봤다");
+        insert("아사히", 22, 2200, "먹을만한데 좀 씀");
+        insert("아사히 드라이", 23, 2300, "아사히랑 다른건가?");
+        insert("산미구엘", 24, 2400, "비싸다 안먹어봤다");
+        insert("칭따오", 25, 2500, "양꼬치엔 칭따오!");
+        insert("코젤다크", 26, 2600, "흑맥주래;");
+        insert("바이드만 슈바르츠", 27, 2700, "흑맥주 밀맥주 구분란 넣을까...");
+        insert("코르넨브루", 28, 2800, "이름 존나김");
+        insert("필스너 우르켈", 29, 2900, "그만 치고 싶다");
+        insert("베를리너 킨들 필스너", 30, 3000, "ㅇㅅㅇ");
+        insert("파울라너 헤페바이스비어", 31, 3100, "와씨발 왜 안마셔본 애들만 나옴");
+        insert("스텔라 아르투아", 32, 3200, "스뗄라");
+        insert("레벤브로이", 33, 3300, "그만하자...");
     }
 
     // insert
