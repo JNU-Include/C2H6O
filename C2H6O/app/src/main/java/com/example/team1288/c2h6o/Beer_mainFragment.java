@@ -47,13 +47,15 @@ public class Beer_mainFragment extends Fragment {
 
         while (!cursor.isAfterLast())
         {
+            int idNum = cursor.getInt(0);
             String name = cursor.getString(1);
             int degree = cursor.getInt(2);
             int price = cursor.getInt(3);
+            String explain = cursor.getString(4);
 
             // add item
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_beer),
-                name, degree + "%", price + "원", ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
+                idNum, name, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
 
             cursor.moveToNext(); // 다음 row
         }
@@ -65,12 +67,13 @@ public class Beer_mainFragment extends Fragment {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 // get item
                 ListViewItem item = (ListViewItem) parent.getItemAtPosition(position) ;
+                int int_idNum = item.getIdNum();
 
+                // idNum, name, degree, price, explain 을 넘겨주면서 detail 페이지로 Fragment 교체
                 String str_name = item.getName() ;
-                String str_degree = item.getDegree() ;
-                String str_price = item.getPrice();
-                Drawable dr_icon = item.getIcon() ;
-                Drawable dr_arrow = item.getArrow();
+                int int_degree = item.getDegree() ;
+                int int_price = item.getPrice();
+                String str_explain = item.getExplain();
 
                 // TODO : use item data.
             }
