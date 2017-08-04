@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by ssoso on 2017-07-12.
  */
 
-public class Makgeolli_mainActivity extends AppCompatActivity {
+public class Makgeolli_mainFragment extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -16,7 +16,7 @@ import android.widget.ListView;
  * Created by ssoso on 2017-07-12.
  */
 
-public class Beer_mainActivity extends AppCompatActivity {
+public class Beer_mainFragment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

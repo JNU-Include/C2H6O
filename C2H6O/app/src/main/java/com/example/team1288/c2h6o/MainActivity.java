@@ -108,12 +108,12 @@ public class MainActivity extends AppCompatActivity {
 //                {
 //                    case R.id.btn_goBeer: // 맥주 페이지로 이동
 //                        intent = new Intent(getApplicationContext(), // 현재 화면의 제어권자
-//                                Beer_mainActivity.class); // 다음 넘어갈 클래스 지정
+//                                Beer_mainFragment.class); // 다음 넘어갈 클래스 지정
 //                        startActivity(intent); // 다음 화면으로 넘어간다
 //                        break;
 //
 //                    case R.id.btn_goMakgeoll: // 막걸리 페이지로 이동
-//                        intent = new Intent(getApplicationContext(), Makgeolli_mainActivity.class);
+//                        intent = new Intent(getApplicationContext(), Makgeolli_mainFragment.class);
 //                        startActivity(intent);
 //                        break;
 //
