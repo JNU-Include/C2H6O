@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.li_soju:
                         return true;
                     case R.id.li_beer:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Beer_mainFragment()).commit();
                         return true;
                     case R.id.li_makgeolli:
                         return true;
@@ -76,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                Toast.makeText(getApplicationContext(), "Drawer Opened", Toast.LENGTH_SHORT).show();
             }
 
             //We can perform a particular action when the
@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                Toast.makeText(getApplicationContext(), "Drawer Closed", Toast.LENGTH_SHORT).show();
             }
         };
 
