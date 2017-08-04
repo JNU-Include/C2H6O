@@ -26,11 +26,21 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Home_Fragment()).commit();
 
+        setToolbar();
+        setDrawer();
+
+    }
+
+    private void setToolbar()
+    {
         // toolbar 세팅
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
+    }
 
+    private void setDrawer()
+    {
         //Initialising NavigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         //Setting OnNavigationItemSelectedListener to the Navigation View.
@@ -95,37 +105,6 @@ public class MainActivity extends AppCompatActivity {
         //Sync State of the navigation icon on the toolbar
         // with the drawer when the drawer is opened or closed.
         drawerToggle.syncState();
+    }
 
-        // Button Click Event
-//        Button.OnClickListener onClickListener = new Button.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent;
-//                switch (view.getId()) // 클릭된 버튼의 Id에 따라
-//                {
-//                    case R.id.btn_goBeer: // 맥주 페이지로 이동
-//                        intent = new Intent(getApplicationContext(), // 현재 화면의 제어권자
-//                                Beer_mainFragment.class); // 다음 넘어갈 클래스 지정
-//                        startActivity(intent); // 다음 화면으로 넘어간다
-//                        break;
-//
-//                    case R.id.btn_goMakgeoll: // 막걸리 페이지로 이동
-//                        intent = new Intent(getApplicationContext(), Makgeolli_mainFragment.class);
-//                        startActivity(intent);
-//                        break;
-//
-//                    default:
-//                        break;
-//                }
-//            }
-//        };
-//
-//        // Button 과 onClickListener 연결
-//        Button b_goBeer = (Button) findViewById(R.id.btn_goBeer);
-//        b_goBeer.setOnClickListener(onClickListener);
-//        Button b_goMakgeolli = (Button) findViewById(R.id.btn_goMakgeoll);
-//        b_goMakgeolli.setOnClickListener(onClickListener);
-
-    } // end method
 } // end class
