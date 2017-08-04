@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Home_Fragment()).commit();
+
         // toolbar 세팅
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,19 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.li_home:
                         //Action Code Here
-                        Toast.makeText(getApplicationContext(), "홈", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Home_Fragment()).commit();
                         return true;
                     case R.id.li_soju:
-                        Toast.makeText(getApplicationContext(), "소주페이지", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.li_beer:
-                        Toast.makeText(getApplicationContext(), "맥주페이지", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.li_makgeolli:
-                        Toast.makeText(getApplicationContext(), "막걸리페이지", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.li_cocktail:
-                        Toast.makeText(getApplicationContext(), "칵테일페이지", Toast.LENGTH_SHORT).show();
                         return true;
 
                     default:
