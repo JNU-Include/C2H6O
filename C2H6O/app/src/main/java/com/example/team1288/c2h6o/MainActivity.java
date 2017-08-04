@@ -26,21 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Home_Fragment()).commit();
 
-        setToolbar();
-        setDrawer();
-
-    }
-
-    private void setToolbar()
-    {
         // toolbar 세팅
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
-    }
 
-    private void setDrawer()
-    {
         //Initialising NavigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         //Setting OnNavigationItemSelectedListener to the Navigation View.
@@ -105,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         //Sync State of the navigation icon on the toolbar
         // with the drawer when the drawer is opened or closed.
         drawerToggle.syncState();
+
     }
 
 } // end class
