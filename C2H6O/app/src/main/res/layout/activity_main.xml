@@ -30,21 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" />
-    <!--<Button-->
-        <!--android:id="@+id/btn_goBeer"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="맥주 페이지"-->
-        <!--tools:layout_editor_absoluteY="156dp"-->
-        <!--tools:layout_editor_absoluteX="80dp" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/btn_goMakgeoll"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="막걸리 페이지"-->
-        <!--tools:layout_editor_absoluteY="156dp"-->
-        <!--tools:layout_editor_absoluteX="210dp" />-->
 
     </LinearLayout>
     <!--드로어에 표시될 뷰 (Navigation)-->

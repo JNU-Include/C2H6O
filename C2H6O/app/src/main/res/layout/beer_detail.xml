@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="detail beer" />
+
+    <TextView
+        android:id="@+id/tv_beerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="name"/>
+    <TextView
+        android:id="@+id/tv_beerDegree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="degree"/>
+    <TextView
+        android:id="@+id/tv_beerPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="price"/>
+    <TextView
+        android:id="@+id/tv_beerExplain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="explain"/>
+</LinearLayout>

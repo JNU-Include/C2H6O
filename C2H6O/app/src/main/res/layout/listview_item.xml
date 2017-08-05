@@ -49,7 +49,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ImageButton
+    <ImageView
         android:background="#77f290c2"
         android:id="@+id/btn_explain"
         android:layout_width="0dp"

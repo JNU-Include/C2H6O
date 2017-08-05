@@ -10,23 +10,27 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * Created by ssoso on 2017-07-12.
  */
 
-public class Beer_mainFragment extends Fragment {
+public class Beer_mainFragment extends Fragment implements AdapterView.OnItemClickListener {
     SQLiteDatabase db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.beer_main, container, false);
+
+        Log.d(getClass().toString(), "맥주페이지 생성");
 
         DB_Beer db_info_beer = new DB_Beer(getActivity());
         db = db_info_beer.getDB();
@@ -61,24 +65,16 @@ public class Beer_mainFragment extends Fragment {
         }
         cursor.close();
 
+        Log.d(getClass().toString(), "db data 넣기 완료");
+
         // 위에서 생성한 listview에 클릭 이벤트 핸들러 정의.
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                // get item
-                ListViewItem item = (ListViewItem) parent.getItemAtPosition(position) ;
-                int int_idNum = item.getIdNum();
-
-                // idNum, name, degree, price, explain 을 넘겨주면서 detail 페이지로 Fragment 교체
-                String str_name = item.getName() ;
-                int int_degree = item.getDegree() ;
-                int int_price = item.getPrice();
-                String str_explain = item.getExplain();
-
-                // TODO : use item data.
-            }
-        }) ;
+        listview.setOnItemClickListener(this);
 
         return rootView;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.d(getClass().toString(), "item 클릭");
     }
 }
