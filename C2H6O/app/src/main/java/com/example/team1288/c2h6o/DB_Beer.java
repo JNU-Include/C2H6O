@@ -43,9 +43,9 @@ public class DB_Beer {
 
         try {
             db.execSQL(sql);
+            insertData();
         } catch (SQLException e) { }
 
-        insertData();
     }
 
     // 데이터 입력
