@@ -74,7 +74,21 @@ public class Beer_mainFragment extends Fragment implements AdapterView.OnItemCli
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Log.d(getClass().toString(), "item 클릭");
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        // get item
+        ListViewItem item = (ListViewItem) adapterView.getItemAtPosition(position) ;
+
+        // name, degree, price, explain 을 넘겨주면서 detail 페이지로 Fragment 교체
+        Bundle args = new Bundle();
+
+        args.putString("str_name", item.getName());
+        args.putInt("int_degree", item.getDegree());
+        args.putInt("int_price", item.getPrice());
+        args.putString("str_explain", item.getExplain());
+
+        Fragment fragment = new Beer_detailFragment();
+        fragment.setArguments(args);
+
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, fragment).commit();
     }
 }
