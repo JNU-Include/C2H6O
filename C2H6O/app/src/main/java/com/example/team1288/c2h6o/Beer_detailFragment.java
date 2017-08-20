@@ -34,8 +34,8 @@ public class Beer_detailFragment extends Fragment {
         TextView tv_beerExplain = rootView.findViewById(R.id.tv_beerExplain);
 
         tv_beerName.setText(str_name);
-        tv_beerDegree.setText(Integer.toString(int_degree));
-        tv_beerPrice.setText(Integer.toString(int_price));
+        tv_beerDegree.setText(Integer.toString(int_degree) + "%");
+        tv_beerPrice.setText(Integer.toString(int_price) + "원");
         tv_beerExplain.setText(str_explain);
 
         return rootView;
