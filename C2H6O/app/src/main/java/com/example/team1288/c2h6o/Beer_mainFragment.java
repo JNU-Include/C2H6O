@@ -58,7 +58,7 @@ public class Beer_mainFragment extends Fragment implements AdapterView.OnItemCli
             String explain = cursor.getString(4);
 
             // add item
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_beer),
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.pic_beer),
                 idNum, name, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
 
             cursor.moveToNext(); // 다음 row

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
 
     <ImageView
         android:background="#771595dd"
@@ -11,40 +12,40 @@
         android:id="@+id/alcohol_icon" />
 
     <LinearLayout
-        android:background="#77ab1856"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="5"
         android:orientation="vertical">
         <TextView
-            android:background="#779515da"
             android:id="@+id/alcohol_name"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#111"
+            android:textSize="20dp"
             android:text="술 이름"
             />
         
         <LinearLayout
-            android:background="#77155895"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
             <TextView
-                android:background="#77ab158a"
                 android:id="@+id/alcohol_degree"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_marginLeft="25dp"
                 android:text="도수"/>
             <TextView
-                android:background="#77929a05"
                 android:id="@+id/alohol_price"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_marginLeft="15dp"
                 android:text="가격"/>
         </LinearLayout>
     </LinearLayout>

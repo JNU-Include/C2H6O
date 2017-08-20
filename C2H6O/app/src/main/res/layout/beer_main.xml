@@ -7,7 +7,10 @@
 
     <ListView
         android:id="@+id/beerlist"
-        android:background="#7718a581"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
