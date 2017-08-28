@@ -2,6 +2,7 @@ package com.example.team1288.c2h6o;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class ListViewAdapter extends BaseAdapter {
         TextView tv_name = (TextView) convertView.findViewById(R.id.alcohol_name);
         TextView tv_degree = (TextView) convertView.findViewById(R.id.alcohol_degree);
         TextView tv_price = (TextView) convertView.findViewById(R.id.alohol_price);
-        ImageButton iv_arrow = (ImageButton) convertView.findViewById(R.id.btn_explain);
+        ImageView iv_arrow = (ImageView) convertView.findViewById(R.id.btn_explain);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemList.get(position);
@@ -57,8 +58,8 @@ public class ListViewAdapter extends BaseAdapter {
         // 아이템 내 각 위젯에 데이터 반영
         iv_icon.setImageDrawable(listViewItem.getIcon());
         tv_name.setText(listViewItem.getName());
-        tv_degree.setText(listViewItem.getDegree());
-        tv_price.setText(listViewItem.getPrice());
+        tv_degree.setText(listViewItem.getDegree() + "%");
+        tv_price.setText(listViewItem.getPrice() + "원");
         iv_arrow.setImageDrawable(listViewItem.getArrow());
 
         return convertView;
@@ -77,16 +78,20 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable icon, String name, String degree, String price, Drawable arrow) {
+    public void addItem(Drawable icon, int idNum, String name, int degree, int price, String explain, Drawable arrow) {
         ListViewItem item = new ListViewItem();
 
         item.setIcon(icon);
+        item.setIdNum(idNum);
         item.setName(name);
         item.setDegree(degree);
         item.setPrice(price);
+        item.setExplain(explain);
         item.setArrow(arrow);
 
         listViewItemList.add(item);
+
+        Log.e(getClass().toString(), idNum + "아이템 추가" + name);
     }
 
 }

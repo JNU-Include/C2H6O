@@ -9,9 +9,11 @@ import android.graphics.drawable.Drawable;
 public class ListViewItem {
     private Drawable icon;
     private Drawable arrow;
+    private int idNum;
     private String name;
-    private String degree;
-    private String price;
+    private int degree;
+    private int price;
+    private String explain;
 
     // setter
     public void setIcon(Drawable icon) {
@@ -26,12 +28,18 @@ public class ListViewItem {
         this.name = name;
     }
 
-    public void setDegree(String degree) {
+    public void setDegree(int degree) {
         this.degree = degree;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
+    }
+
+    public void setIdNum(int idNum) { this.idNum = idNum; }
+
+    public void setExplain(String explain) {
+        this.explain = explain;
     }
 
     // getter
@@ -48,11 +56,18 @@ public class ListViewItem {
         return name;
     }
 
-    public String getDegree() {
+    public int getDegree() {
         return degree;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
+
+    public int getIdNum() { return idNum; }
+
+    public String getExplain() {
+        return explain;
+    }
+
 }
