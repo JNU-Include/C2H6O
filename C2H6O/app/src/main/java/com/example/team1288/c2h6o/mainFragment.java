@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,19 +23,16 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
     public mainFragment()
     {
         this.choice = 0;
-        Log.d("main", "생성자1");
     }
 
     public mainFragment(int choice)
     {
         this.choice = choice;
-        Log.d("main", "생성자2");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("main", "craete view");
-        View rootView = null;
+        View rootView = inflater.inflate(R.layout.main_layout, container, false);
         DB_Alcohol db_info = null;
 
         ListView listview = null;
@@ -45,25 +41,21 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         switch (choice)
         {
             case 1 : // soju
-//                rootView = inflater.inflate(R.layout.soju_main, container, false);
-//                db_info = new DB_Beer(getActivity());
-//                listview = (ListView) rootView.findViewById(R.id.beerlist);
+                db_info = new DB_Soju(getActivity());
+                listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 break;
 
             case 2 : // beer
-                rootView = inflater.inflate(R.layout.beer_main, container, false);
                 db_info = new DB_Beer(getActivity());
-                listview = (ListView) rootView.findViewById(R.id.beerlist);
+                listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 break;
 
             case 3 : // makgeolli
-//                rootView = inflater.inflate(R.layout.makgeolli_main, container, false);
-//                db_info = new DB_Beer(getActivity());
-//                listview = (ListView) rootView.findViewById(R.id.beerlist);
+                db_info = new DB_Makgeolli(getActivity());
+                listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 break;
 
             case 4 : // cocktail
-//                rootView = inflater.inflate(R.layout.soju_main, container, false);
 //                db_info = new DB_Beer(getActivity());
 //                listview = (ListView) rootView.findViewById(R.id.beerlist);
                 break;
@@ -113,7 +105,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         // get item
         ListViewItem item = (ListViewItem) adapterView.getItemAtPosition(position) ;
 
-        // name, degree, price, explain 을 넘겨주면서 detail 페이지로 Fragment 교체
+        // name, degree, price, explain 을 넘겨주면서 detail_layout 페이지로 Fragment 교체
         Bundle args = new Bundle();
 
         args.putString("str_name", item.getName());
@@ -125,7 +117,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         switch (choice)
         {
             case 1: // soju
-//                fragment = new Beer_detailFragment();
+                fragment = new Soju_detailFragment();
                 break;
 
             case 2: // beer
@@ -133,7 +125,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
                 break;
 
             case 3: // makgeolli
-//                fragment = new Beer_detailFragment();
+                fragment = new Makgeolli_detailFragment();
                 break;
 
             case 4: // cocktail
