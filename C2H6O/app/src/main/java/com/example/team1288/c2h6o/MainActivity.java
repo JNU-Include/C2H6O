@@ -3,6 +3,7 @@ package com.example.team1288.c2h6o;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -103,6 +104,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+//        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.l_main_fragment);
+//
+//        if (fragment instanceof Home_Fragment){
+//            Toast.makeText(getApplicationContext(), "home fragment", Toast.LENGTH_SHORT).show();
+//        } else if (fragment instanceof Soju_mainFragment || fragment instanceof Beer_mainFragment ) {
+//            Toast.makeText(getApplicationContext(), "soju fragment", Toast.LENGTH_SHORT).show();
+//        } else if (fragment instanceof Beer_mainFragment) {
+//            Toast.makeText(getApplicationContext(), "home fragment", Toast.LENGTH_SHORT).show();
+//        }
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
@@ -116,4 +126,5 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
     }
+
 } // end class
