@@ -104,27 +104,30 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.l_main_fragment);
-//
-//        if (fragment instanceof Home_Fragment){
-//            Toast.makeText(getApplicationContext(), "home fragment", Toast.LENGTH_SHORT).show();
-//        } else if (fragment instanceof Soju_mainFragment || fragment instanceof Beer_mainFragment ) {
-//            Toast.makeText(getApplicationContext(), "soju fragment", Toast.LENGTH_SHORT).show();
-//        } else if (fragment instanceof Beer_mainFragment) {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.l_main_fragment);
+
+        if (fragment instanceof Home_Fragment){
+            Toast.makeText(getApplicationContext(), "home fragment", Toast.LENGTH_SHORT).show();
+        } else if (fragment instanceof mainFragment ) {
+            Toast.makeText(getApplicationContext(), "main fragment", Toast.LENGTH_SHORT).show();
+        }
+//        else if (fragment instanceof Beer_mainFragment) {
 //            Toast.makeText(getApplicationContext(), "home fragment", Toast.LENGTH_SHORT).show();
 //        }
-        long tempTime = System.currentTimeMillis();
-        long intervalTime = tempTime - backPressedTime;
 
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
-        {
-            super.onBackPressed();
-        }
-        else
-        {
-            backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
-        }
+//        두 번 클릭 시 종료
+//        long tempTime = System.currentTimeMillis();
+//        long intervalTime = tempTime - backPressedTime;
+//
+//        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+//        {
+//            super.onBackPressed();
+//        }
+//        else
+//        {
+//            backPressedTime = tempTime;
+//            Toast.makeText(getApplicationContext(), "한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+//        }
     }
 
 } // end class

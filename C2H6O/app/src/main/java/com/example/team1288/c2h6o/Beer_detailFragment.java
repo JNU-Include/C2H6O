@@ -13,31 +13,9 @@ import android.widget.TextView;
  * Created by ssoso on 2017-08-05.
  */
 
-public class Beer_detailFragment extends Fragment {
-    @Nullable
+public class Beer_detailFragment extends detailFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.beer_detail, container, false);
-
-        // 정보 받기
-        String str_name = getArguments().getString("str_name");
-        int int_degree = getArguments().getInt("int_degree");
-        int int_price = getArguments().getInt("int_price");
-        String str_explain = getArguments().getString("str_explain");
-
-        Log.d("받아온거 : ", str_name + Integer.toString(int_degree) + Integer.toString(int_price) + str_explain);
-
-        // 정보 표시
-        TextView tv_beerName = rootView.findViewById(R.id.tv_beerName);
-        TextView tv_beerDegree = rootView.findViewById(R.id.tv_beerDegree);
-        TextView tv_beerPrice = rootView.findViewById(R.id.tv_beerPrice);
-        TextView tv_beerExplain = rootView.findViewById(R.id.tv_beerExplain);
-
-        tv_beerName.setText(str_name);
-        tv_beerDegree.setText(Integer.toString(int_degree) + "%");
-        tv_beerPrice.setText(Integer.toString(int_price) + "원");
-        tv_beerExplain.setText(str_explain);
-
-        return rootView;
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }
