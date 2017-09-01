@@ -4,19 +4,45 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
-        android:id="@+id/btn_goBeer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="맥주 페이지"
-        tools:layout_editor_absoluteY="156dp"
-        tools:layout_editor_absoluteX="80dp" />
 
-    <Button
-        android:id="@+id/btn_goMakgeoll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="막걸리 페이지"
-        tools:layout_editor_absoluteY="156dp"
-        tools:layout_editor_absoluteX="210dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center_horizontal">
+        <ImageButton
+            android:id="@+id/ib_soju"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:background="@drawable/ib_soju"/>
+        <ImageButton
+            android:id="@+id/ib_beer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:background="@drawable/ib_beer"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center_horizontal">
+        <ImageButton
+            android:id="@+id/ib_makgeolli"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/ib_makgeolli"/>
+        <ImageButton
+            android:id="@+id/ib_cocktail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/ib_cocktail"/>
+    </LinearLayout>
+
 </LinearLayout>

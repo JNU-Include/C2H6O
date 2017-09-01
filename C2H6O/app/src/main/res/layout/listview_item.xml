@@ -15,7 +15,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="5"
-        android:paddingLeft="20dp"
+        android:paddingLeft="10dp"
         android:orientation="vertical">
         <TextView
             android:id="@+id/alcohol_name"
@@ -26,7 +26,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:textColor="#111"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:text="술 이름"
             />
         
@@ -40,13 +40,15 @@
                 android:id="@+id/alcohol_degree"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="25dp"
+                android:textSize="11dp"
                 android:text="도수"/>
             <TextView
                 android:id="@+id/alohol_price"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="11dp"
                 android:text="가격"/>
         </LinearLayout>
     </LinearLayout>
