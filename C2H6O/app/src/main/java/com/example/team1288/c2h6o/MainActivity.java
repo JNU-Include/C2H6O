@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Makgeolli_mainFragment()).commit();
                         return true;
                     case R.id.li_cocktail:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Cocktail_mainFragment()).commit();
                         return true;
 
                     default:
@@ -127,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Beer_mainFragment()).commit();
         } else if (fragment instanceof Makgeolli_detailFragment) {
             getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Makgeolli_mainFragment()).commit();
+        } else if (fragment instanceof Makgeolli_detailFragment) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Cocktail_mainFragment()).commit();
         }
 
 

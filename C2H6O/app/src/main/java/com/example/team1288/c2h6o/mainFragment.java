@@ -56,8 +56,8 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
                 break;
 
             case 4 : // cocktail
-//                db_info = new DB_Beer(getActivity());
-//                listview = (ListView) rootView.findViewById(R.id.beerlist);
+                db_info = new DB_Cocktail(getActivity());
+                listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 break;
 
             default:
@@ -129,7 +129,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
                 break;
 
             case 4: // cocktail
-//                fragment = new Beer_detailFragment();
+                fragment = new Cocktail_detailFragment();
                 break;
 
             default:
