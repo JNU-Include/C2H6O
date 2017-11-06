@@ -38,26 +38,32 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         ListView listview = null;
         ListViewAdapter adapter = null;
 
+        int icon = 0;
+
         switch (choice)
         {
             case 1 : // soju
                 db_info = new DB_Soju(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_soju;
                 break;
 
             case 2 : // beer
                 db_info = new DB_Beer(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_beer;
                 break;
 
             case 3 : // makgeolli
                 db_info = new DB_Makgeolli(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_makgeolli;
                 break;
 
             case 4 : // cocktail
                 db_info = new DB_Cocktail(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_cocktail;
                 break;
 
             default:
@@ -85,7 +91,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
             String explain = cursor.getString(4);
 
             // add item
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.pic_beer),
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), icon),
                     idNum, name, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
 
             cursor.moveToNext(); // 다음 row
