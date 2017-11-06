@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -23,15 +24,16 @@ public class detailFragment extends Fragment{
         String str_explain = getArguments().getString("str_explain");
 
         // 정보 표시
-        TextView tv_beerName = rootView.findViewById(R.id.tv_beerName);
-        TextView tv_beerDegree = rootView.findViewById(R.id.tv_beerDegree);
-        TextView tv_beerPrice = rootView.findViewById(R.id.tv_beerPrice);
-        TextView tv_beerExplain = rootView.findViewById(R.id.tv_beerExplain);
+        ImageView iv_PicAlcohol = rootView.findViewById(R.id.iv_PicAlcohol);
+        TextView tv_alcoholName = rootView.findViewById(R.id.tv_alcoholName);
+        TextView tv_alcoholDegree = rootView.findViewById(R.id.tv_alcoholDegree);
+        TextView tv_alcoholPrice = rootView.findViewById(R.id.tv_alcoholPrice);
+        TextView tv_alcoholExplain = rootView.findViewById(R.id.tv_alcoholExplain);
 
-        tv_beerName.setText(str_name);
-        tv_beerDegree.setText(Integer.toString(int_degree) + "%");
-        tv_beerPrice.setText(Integer.toString(int_price) + "원");
-        tv_beerExplain.setText(str_explain);
+        tv_alcoholName.setText(str_name);
+        tv_alcoholDegree.setText(Integer.toString(int_degree) + "%");
+        tv_alcoholPrice.setText(Integer.toString(int_price) + "원");
+        tv_alcoholExplain.setText(str_explain);
 
         return rootView;
     }
