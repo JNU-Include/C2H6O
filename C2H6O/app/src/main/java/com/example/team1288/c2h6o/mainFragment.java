@@ -85,6 +85,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         while (!cursor.isAfterLast())
         {
             int idNum = cursor.getInt(0);
+            byte[] picture = cursor.getBlob(1);
             String name = cursor.getString(2);
             int degree = cursor.getInt(3);
             int price = cursor.getInt(4);
@@ -92,7 +93,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
 
             // add item
             adapter.addItem(ContextCompat.getDrawable(getActivity(), icon),
-                    idNum, name, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
+                    idNum, picture, name, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
 
             cursor.moveToNext(); // 다음 row
         }

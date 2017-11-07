@@ -13,6 +13,8 @@ import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by ssoso on 2017-08-28.
  */
@@ -79,6 +81,7 @@ public class DB_Alcohol {
         byte[] pic = getByteArrayFromDrawable(picture);
 //        SQLiteStatement p = db.compileStatement("INSERT INTO " + tableName + " values(?);");
 //        p.bindBlob(1, pic);
+        Log.d(TAG, "알코올 db insert: " + pic);
         values.put("picture", pic);
         values.put("name", name);
         values.put("degree", degree);

@@ -47,7 +47,7 @@ public class DB_Beer extends DB_Alcohol {
 //        insert("스텔라 아르투아", 32, 3200, "스뗄라");
 //        insert("레벤브로이", 33, 3300, "그만하자...");
 
-        insert(ContextCompat.getDrawable(context, R.drawable.pic_beer) ,"Cass", 15, 1500, "이것은 카스이다...");
+        insert(ContextCompat.getDrawable(context, R.drawable.img_soju) ,"Cass", 15, 1500, "이것은 카스이다...");
 //        insert("Hite", 16, 1600, "나는 하이트가 실다....");
 //        insert("Max", 17, 1700, "맥스 왜먹냐 ㄹㅇ");
 //        insert("Heineken", 18, 1800, "하이네켄...병이..예쁘다...");
