@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
@@ -91,6 +92,15 @@ public class DB_Alcohol {
         // tip : 마우스를 db.insert에 올려보면 매개변수가 어떤 것이 와야 하는지 알 수 있다.
     }
 
+    // update
+    public void update (String name, int age) {   }
+
+    // delete
+    public void delete (String name) { }
+
+    // select
+    public void select() { }
+
     public byte[] getByteArrayFromDrawable(Drawable d) {
         Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -100,55 +110,7 @@ public class DB_Alcohol {
         return data;
     }
 
-    // update
-    public void update (String name, int age) {
-        db = helper.getWritableDatabase(); //db 객체를 얻어온다. 쓰기가능
-
-        ContentValues values = new ContentValues();
-        values.put("age", age);    //age 값을 수정
-        db.update("student", values, "name=?", new String[]{name});
-        /*
-         * new String[] {name} 이런 간략화 형태가 자바에서 가능하다
-         * 당연하지만, 별도로 String[] asdf = {name} 후 사용하는 것도 동일한 결과가 나온다.
-         */
-
-        /*
-         * public int update (String table,
-         * ContentValues values, String whereClause, String[] whereArgs)
-         */
-    }
-
-    // delete
-    public void delete (String name) {
-        db = helper.getWritableDatabase();
-        db.delete("student", "name=?", new String[]{name});
-        Log.i("db", name + "정상적으로 삭제 되었습니다.");
-    }
-
-    // select
-    public void select() {
-
-        // 1) db의 데이터를 읽어와서, 2) 결과 저장, 3)해당 데이터를 꺼내 사용
-
-        db = helper.getReadableDatabase(); // db객체를 얻어온다. 읽기 전용
-        Cursor c = db.query("student", null, null, null, null, null, null);
-
-        /*
-         * 위 결과는 select * from student 가 된다. Cursor는 DB결과를 저장한다. public Cursor
-         * query (String table, String[] columns, String selection, String[]
-         * selectionArgs, String groupBy, String having, String orderBy)
-         */
-
-        while (c.moveToNext()) {
-            // c의 int가져와라 ( c의 컬럼 중 id) 인 것의 형태이다.
-            int _id = c.getInt(c.getColumnIndex("_id"));
-            String name = c.getString(c.getColumnIndex("name"));
-            int age = c.getInt(c.getColumnIndex("age"));
-            String address = c.getString(c.getColumnIndex("address"));
-            Log.i("db", "id: " + _id + ", name : " + name + ", age : " + age
-                    + ", address : " + address);
-        }
-    }
+    public Drawable getDR(int drName){ return  ContextCompat.getDrawable(context, drName);  }
 
     public SQLiteDatabase getDB() { return db; }
     public void setTableName(String tn) { this.tableName = tn; }
