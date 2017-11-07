@@ -73,13 +73,13 @@ public class DB_Alcohol {
     }
 
     // insert
-    public void insert(Drawable picture ,String name, int degree, int price, String explain) {
+    public void insert(int picture ,String name, int degree, int price, String explain) {
         db = helper.getWritableDatabase(); // db 객체를 얻어온다. 쓰기 가능
 
         ContentValues values = new ContentValues();
         // db.insert의 매개변수인 values가 ContentValues 변수이므로 그에 맞춤
         // 데이터의 삽입은 put을 이용한다.
-        byte[] pic = getByteArrayFromDrawable(picture);
+        byte[] pic = getByteArrayFromDrawable(getDR(picture));
 //        SQLiteStatement p = db.compileStatement("INSERT INTO " + tableName + " values(?);");
 //        p.bindBlob(1, pic);
         Log.d(TAG, "알코올 db insert: " + pic);
