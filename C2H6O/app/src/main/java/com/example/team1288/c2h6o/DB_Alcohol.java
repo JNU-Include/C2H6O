@@ -5,7 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
 
 /**
  * Created by ssoso on 2017-08-28.
@@ -40,6 +46,7 @@ public class DB_Alcohol {
         // 테이블 생성
         String sql = "CREATE TABLE " + this.tableName + " ( "
                 + "_id integer primary key autoincrement, "
+                + "picture BLOB null, "
                 + "name varchar(50) null, "
                 + "degree int null, "
                 + "price int null, "
@@ -63,18 +70,31 @@ public class DB_Alcohol {
     }
 
     // insert
-    public void insert(String name, int degree, int price, String explain) {
+    public void insert(Drawable picture ,String name, int degree, int price, String explain) {
         db = helper.getWritableDatabase(); // db 객체를 얻어온다. 쓰기 가능
 
         ContentValues values = new ContentValues();
         // db.insert의 매개변수인 values가 ContentValues 변수이므로 그에 맞춤
         // 데이터의 삽입은 put을 이용한다.
+        byte[] pic = getByteArrayFromDrawable(picture);
+//        SQLiteStatement p = db.compileStatement("INSERT INTO " + tableName + " values(?);");
+//        p.bindBlob(1, pic);
+        values.put("picture", pic);
         values.put("name", name);
         values.put("degree", degree);
         values.put("price", price);
         values.put("explain", explain);
         db.insert(tableName, null, values); // 테이블/널컬럼핵/데이터(널컬럼핵=디폴트)
         // tip : 마우스를 db.insert에 올려보면 매개변수가 어떤 것이 와야 하는지 알 수 있다.
+    }
+
+    public byte[] getByteArrayFromDrawable(Drawable d) {
+        Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] data = stream.toByteArray();
+
+        return data;
     }
 
     // update

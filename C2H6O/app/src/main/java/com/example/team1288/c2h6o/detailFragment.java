@@ -1,5 +1,9 @@
 package com.example.team1288.c2h6o;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +22,7 @@ public class detailFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.detail_layout, container, false);
 
         // 정보 받기
+        byte[] byte_picture = getArguments().getByteArray("byte_picture");
         String str_name = getArguments().getString("str_name");
         int int_degree = getArguments().getInt("int_degree");
         int int_price = getArguments().getInt("int_price");
@@ -30,11 +35,19 @@ public class detailFragment extends Fragment{
         TextView tv_alcoholPrice = rootView.findViewById(R.id.tv_alcoholPrice);
         TextView tv_alcoholExplain = rootView.findViewById(R.id.tv_alcoholExplain);
 
+        Bitmap bitmap = getAppIcon(byte_picture);
+
+        iv_PicAlcohol.setImageDrawable(new BitmapDrawable(getResources(), bitmap));
         tv_alcoholName.setText(str_name);
         tv_alcoholDegree.setText(Integer.toString(int_degree) + "%");
         tv_alcoholPrice.setText(Integer.toString(int_price) + "원");
         tv_alcoholExplain.setText(str_explain);
 
         return rootView;
+    }
+
+    public Bitmap getAppIcon(byte[] b) {
+        Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
+        return bitmap;
     }
 }

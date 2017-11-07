@@ -18,6 +18,6 @@ public class DB_Makgeolli extends DB_Alcohol {
     // 데이터 입력
     private void insertData()
     {
-        insert("test술", 10, 1000, "테스트용 가데이터 입니다");
+//        insert("test술", 10, 1000, "테스트용 가데이터 입니다");
     }
 }

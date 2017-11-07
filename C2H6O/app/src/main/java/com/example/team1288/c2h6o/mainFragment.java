@@ -85,10 +85,10 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         while (!cursor.isAfterLast())
         {
             int idNum = cursor.getInt(0);
-            String name = cursor.getString(1);
-            int degree = cursor.getInt(2);
-            int price = cursor.getInt(3);
-            String explain = cursor.getString(4);
+            String name = cursor.getString(2);
+            int degree = cursor.getInt(3);
+            int price = cursor.getInt(4);
+            String explain = cursor.getString(5);
 
             // add item
             adapter.addItem(ContextCompat.getDrawable(getActivity(), icon),
@@ -114,6 +114,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         // name, degree, price, explain 을 넘겨주면서 detail_layout 페이지로 Fragment 교체
         Bundle args = new Bundle();
 
+        args.putByteArray("byte_picture", item.getPicture());
         args.putString("str_name", item.getName());
         args.putInt("int_degree", item.getDegree());
         args.putInt("int_price", item.getPrice());

@@ -18,6 +18,6 @@ public class DB_Soju extends DB_Alcohol {
     // 데이터 입력
     private void insertData()
     {
-        insert("테스트alcohol", 20, 2000, "테스트를 위한 가짜 데이터 입니다.");
+//        insert("테스트alcohol", 20, 2000, "테스트를 위한 가짜 데이터 입니다.");
     }
 }

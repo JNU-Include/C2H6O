@@ -18,6 +18,6 @@ public class DB_Cocktail extends DB_Alcohol {
     // 데이터 입력
     private void insertData()
     {
-        insert("칵테일테일", 10, 1000, "칵테일 테스트용 가데이터 입니다");
+//        insert("칵테일테일", 10, 1000, "칵테일 테스트용 가데이터 입니다");
     }
 }
