@@ -46,7 +46,7 @@ public class DB_Alcohol {
         this.helper = new DBHelper_Alcohol(context, dbName, null, dbVersion);
         db = helper.getWritableDatabase();
 
-        // 테이블 생성
+//         테이블 생성
         String sql = "CREATE TABLE " + this.tableName + " ( "
                 + "_id integer primary key autoincrement, "
                 + "picture BLOB null, "

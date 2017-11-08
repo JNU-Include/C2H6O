@@ -47,9 +47,9 @@ public class DB_Beer extends DB_Alcohol {
 //        insert("스텔라 아르투아", 32, 3200, "스뗄라");
 //        insert("레벤브로이", 33, 3300, "그만하자...");
 
-        insert(R.drawable.beer_cass ,"Cass", 4.5, 1500, "이것은 카스이다...");
-//        insert("Hite", 16, 1600, "나는 하이트가 실다....");
-//        insert("Max", 17, 1700, "맥스 왜먹냐 ㄹㅇ");
+        insert(R.drawable.beer_cass ,"Cass", 4.5, 0000, "이것은 카스이다...");
+        insert(R.drawable.beer_hite, "Hite", 4.5, 0000, "나는 하이트가 실다....");
+        insert(R.drawable.beer_max, "Max", 4.5, 0000, "맥스 왜먹냐 ㄹㅇ");
 //        insert("Heineken", 18, 1800, "하이네켄...병이..예쁘다...");
 //        insert("Sapporo", 19, 1900, "삿포로 별 존예임 ㄹㅇ");
 //        insert("Hoegaarden", 20, 2000, "로제 마셔보고 싶다");
