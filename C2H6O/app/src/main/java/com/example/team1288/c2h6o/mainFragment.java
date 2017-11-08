@@ -87,7 +87,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
             int idNum = cursor.getInt(0);
             byte[] picture = cursor.getBlob(1);
             String name = cursor.getString(2);
-            int degree = cursor.getInt(3);
+            double degree = cursor.getDouble(3);
             int price = cursor.getInt(4);
             String explain = cursor.getString(5);
 
@@ -117,7 +117,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
 
         args.putByteArray("byte_picture", item.getPicture());
         args.putString("str_name", item.getName());
-        args.putInt("int_degree", item.getDegree());
+        args.putDouble("double_degree", item.getDegree());
         args.putInt("int_price", item.getPrice());
         args.putString("str_explain", item.getExplain());
 

@@ -15,7 +15,7 @@ public class ListViewItem {
     private int idNum;
     private byte[] picture;
     private String name;
-    private int degree;
+    private double degree;
     private int price;
     private String explain;
 
@@ -34,7 +34,7 @@ public class ListViewItem {
         this.name = name;
     }
 
-    public void setDegree(int degree) {
+    public void setDegree(double degree) {
         this.degree = degree;
     }
 
@@ -64,7 +64,7 @@ public class ListViewItem {
         return name;
     }
 
-    public int getDegree() {
+    public double getDegree() {
         return degree;
     }
 

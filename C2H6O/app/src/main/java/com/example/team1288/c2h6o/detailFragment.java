@@ -27,7 +27,7 @@ public class detailFragment extends Fragment{
         // 정보 받기
         byte[] byte_picture = getArguments().getByteArray("byte_picture");
         String str_name = getArguments().getString("str_name");
-        int int_degree = getArguments().getInt("int_degree");
+        double double_degree = getArguments().getDouble("double_degree");
         int int_price = getArguments().getInt("int_price");
         String str_explain = getArguments().getString("str_explain");
 
@@ -42,7 +42,7 @@ public class detailFragment extends Fragment{
 
         iv_PicAlcohol.setImageDrawable(new BitmapDrawable(getResources(), bitmap));
         tv_alcoholName.setText(str_name);
-        tv_alcoholDegree.setText(Integer.toString(int_degree) + "%");
+        tv_alcoholDegree.setText(Double.toString(double_degree) + "%");
         tv_alcoholPrice.setText(Integer.toString(int_price) + "원");
         tv_alcoholExplain.setText(str_explain);
 

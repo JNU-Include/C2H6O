@@ -51,7 +51,7 @@ public class DB_Alcohol {
                 + "_id integer primary key autoincrement, "
                 + "picture BLOB null, "
                 + "name varchar(50) null, "
-                + "degree int null, "
+                + "degree double(3,1) null, "
                 + "price int null, "
                 + "explain text null"
                 + " ) ";
@@ -73,7 +73,7 @@ public class DB_Alcohol {
     }
 
     // insert
-    public void insert(int picture ,String name, int degree, int price, String explain) {
+    public void insert(int picture ,String name, double degree, int price, String explain) {
         db = helper.getWritableDatabase(); // db 객체를 얻어온다. 쓰기 가능
 
         ContentValues values = new ContentValues();
