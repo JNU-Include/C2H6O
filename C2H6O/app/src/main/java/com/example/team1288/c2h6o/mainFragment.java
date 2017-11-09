@@ -45,25 +45,25 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         switch (choice)
         {
             case 1 : // soju
-                if (!(db_info instanceof DB_Soju)) db_info = new DB_Soju(getActivity());
+                db_info = CollectorDB.sojuDB;
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_soju;
                 break;
 
             case 2 : // beer
-                if (!(db_info instanceof DB_Beer)) db_info = new DB_Beer(getActivity());
+                db_info = CollectorDB.beerDB;
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_beer;
                 break;
 
             case 3 : // makgeolli
-                if (!(db_info instanceof DB_Makgeolli)) db_info = new DB_Makgeolli(getActivity());
+                db_info = CollectorDB.makgeolliDB;
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_makgeolli;
                 break;
 
             case 4 : // cocktail
-                if (!(db_info instanceof DB_Cocktail)) db_info = new DB_Cocktail(getActivity());
+                db_info = CollectorDB.cocktailDB;
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_cocktail;
                 break;
