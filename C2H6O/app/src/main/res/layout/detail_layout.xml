@@ -17,7 +17,7 @@
             android:layout_height="250dp"
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:layout_weight="4"
@@ -57,18 +57,14 @@
                 android:textColor="#111"
                 android:textSize="15dp"
                 android:text="price"/>
-            <TextView
-                android:id="@+id/tv_alcoholExplain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#111"
-                android:textSize="15dp"
-                android:text="explain"/>
         </LinearLayout>
     </LinearLayout>
     <TextView
-        android:background="#9718f525"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_alcoholExplain"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="레시피나 어울리는거나 뭐 기타등등 "/>
+        android:layout_gravity="center"
+        android:textColor="#111"
+        android:textSize="15dp"
+        android:text="explain"/>
 </LinearLayout>
