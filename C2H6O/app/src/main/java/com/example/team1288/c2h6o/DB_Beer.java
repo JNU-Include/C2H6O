@@ -27,10 +27,10 @@ public class DB_Beer extends DB_Alcohol {
     // 데이터 입력
     private void insertData()
     {
-        insert(R.drawable.beer_cass, "카스", "Cass", 4.5, 2400, "이것은 카스이다...");
-        insert(R.drawable.beer_hite, "하이트", "Hite", 4.5, 2400, "나는 하이트가 실다....");
-        insert(R.drawable.beer_max, "맥스", "Max", 4.5, 2400, "맥스 왜먹냐 ㄹㅇ");
-        insert(R.drawable.beer_heineken, "하이네켄", "Heineken", 5.0, 3900, "하이네켄...병이..예쁘다...");
+        insert(R.drawable.beer_cass, "카스", "Cass", 4.5, 2400, "고든 램지가 “죽이게 신선하네(bloody fresh). 훌륭한 맥주야.” “느끼함을 잡아준다. 톡 쏘고 신선하다” 라고 평한 국산 라거 맥주.");
+        insert(R.drawable.beer_hite, "하이트", "Hite", 4.5, 2400, "숙성에서부터 여과까지 생산 전 공정을 맥주가 얼기 직전, 영하의 온도에서 제조하여 시원하고 청량한 페일라거 맥주 본연의 맛을 극대화시킨 국산 라거 맥주");
+        insert(R.drawable.beer_max, "맥스", "Max", 4.5, 2400, "보리와 캐스캐이드 호프만을 사용한 100% 보리맥주로, 깊고 풍부한 맛과 싱그러운 호프의 향이 잘 조화됐다.");
+        insert(R.drawable.beer_heineken, "하이네켄", "Heineken", 5.0, 3900, "세계 3위의 네덜란드 맥주 하이네켄은 특유의 투명한 황금색과 담백한 거품 맛으로 유명하다. 목 넘김은 가볍과 뒷맛은 묵직함을 느낄 수 있는 쓴맛이 난다. 홉 향이 은은하게 풍기며, 대표적인 라거 맥주다.");
 //        insert("Sapporo", 19, 1900, "삿포로 별 존예임 ㄹㅇ");
         insert(R.drawable.beer_hoegaarden, "호가든", "Hoegaarden", 5.0, 2000, "국내 최초로 소개된 화이트 맥주. \n오렌지 껍질이 들어가 향긋하다.");
 //        insert("Hoegaarden Rosse", 21, 2100, "마셔보고 싶어서 넣어봤다");
