@@ -119,6 +119,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         Bundle args = new Bundle();
 
         args.putByteArray("byte_picture", item.getPicture());
+        args.putString("str_name_kr", item.getNameKR());
         args.putString("str_name_en", item.getNameEN());
         args.putDouble("double_degree", item.getDegree());
         args.putInt("int_price", item.getPrice());
