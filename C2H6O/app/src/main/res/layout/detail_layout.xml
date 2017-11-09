@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#fff">
 
         <ImageView
             android:id="@+id/iv_PicAlcohol"
