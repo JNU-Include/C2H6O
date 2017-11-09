@@ -9,27 +9,37 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="#595221"
         />
 
     <TextView
         android:id="@+id/tv_cockName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
         android:text="name"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/tv_cockMaterial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="50dp"
         android:text="material"
+        android:textSize="13dp"
         />
 
     <TextView
         android:id="@+id/tv_cockExplain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:text="explain"
         />
 </LinearLayout>
