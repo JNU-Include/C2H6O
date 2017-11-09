@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Beer_mainFragment()).commit();
         } else if (fragment instanceof Makgeolli_detailFragment) {
             getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Makgeolli_mainFragment()).commit();
-        } else if (fragment instanceof Makgeolli_detailFragment) {
+        } else if (fragment instanceof Cocktail_detailFragment) {
             getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Cocktail_mainFragment()).commit();
         }
 
