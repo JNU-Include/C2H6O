@@ -50,7 +50,8 @@ public class DB_Alcohol {
         String sql = "CREATE TABLE " + this.tableName + " ( "
                 + "_id integer primary key autoincrement, "
                 + "picture BLOB null, "
-                + "name varchar(50) null, "
+                + "name_kr varchar(50) null, "
+                + "name_en varchar(50) null, "
                 + "degree double(3,1) null, "
                 + "price int null, "
                 + "explain text null"
@@ -73,7 +74,7 @@ public class DB_Alcohol {
     }
 
     // insert
-    public void insert(int picture ,String name, double degree, int price, String explain) {
+    public void insert(int picture ,String name_kr, String name_en, double degree, int price, String explain) {
         db = helper.getWritableDatabase(); // db 객체를 얻어온다. 쓰기 가능
 
         ContentValues values = new ContentValues();
@@ -84,7 +85,8 @@ public class DB_Alcohol {
 //        p.bindBlob(1, pic);
         Log.d(TAG, "알코올 db insert: " + pic);
         values.put("picture", pic);
-        values.put("name", name);
+        values.put("name_kr", name_kr);
+        values.put("name_en", name_en);
         values.put("degree", degree);
         values.put("price", price);
         values.put("explain", explain);

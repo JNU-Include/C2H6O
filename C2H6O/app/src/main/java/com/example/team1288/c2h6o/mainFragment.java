@@ -86,14 +86,15 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         {
             int idNum = cursor.getInt(0);
             byte[] picture = cursor.getBlob(1);
-            String name = cursor.getString(2);
-            double degree = cursor.getDouble(3);
-            int price = cursor.getInt(4);
-            String explain = cursor.getString(5);
+            String name_kr = cursor.getString(2);
+            String name_en = cursor.getString(3);
+            double degree = cursor.getDouble(4);
+            int price = cursor.getInt(5);
+            String explain = cursor.getString(6);
 
             // add item
             adapter.addItem(ContextCompat.getDrawable(getActivity(), icon),
-                    idNum, picture, name, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
+                    idNum, picture, name_kr, name_en, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
 
             cursor.moveToNext(); // 다음 row
         }
@@ -116,7 +117,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         Bundle args = new Bundle();
 
         args.putByteArray("byte_picture", item.getPicture());
-        args.putString("str_name", item.getName());
+        args.putString("str_name_en", item.getNameEN());
         args.putDouble("double_degree", item.getDegree());
         args.putInt("int_price", item.getPrice());
         args.putString("str_explain", item.getExplain());

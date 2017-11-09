@@ -14,7 +14,8 @@ public class ListViewItem {
     private Drawable arrow;
     private int idNum;
     private byte[] picture;
-    private String name;
+    private String name_kr;
+    private String name_en;
     private double degree;
     private int price;
     private String explain;
@@ -30,8 +31,12 @@ public class ListViewItem {
 
     public void setPicture(byte[] picture) { this.picture = picture; }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameKR(String name_kr) {
+        this.name_kr = name_kr;
+    }
+
+    public void setNameEN(String name_en) {
+        this.name_en = name_en;
     }
 
     public void setDegree(double degree) {
@@ -60,8 +65,12 @@ public class ListViewItem {
 
     public byte[] getPicture() { return picture; }
 
-    public String getName() {
-        return name;
+    public String getNameKR() {
+        return name_kr;
+    }
+
+    public String getNameEN() {
+        return name_en;
     }
 
     public double getDegree() {

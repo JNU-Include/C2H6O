@@ -57,7 +57,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         // 아이템 내 각 위젯에 데이터 반영
         iv_icon.setImageDrawable(listViewItem.getIcon());
-        tv_name.setText(listViewItem.getName());
+        tv_name.setText(listViewItem.getNameKR());
         tv_degree.setText(listViewItem.getDegree() + "%");
         tv_price.setText(listViewItem.getPrice() + "원");
         iv_arrow.setImageDrawable(listViewItem.getArrow());
@@ -78,13 +78,14 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable icon, int idNum, byte[] picture, String name, double degree, int price, String explain, Drawable arrow) {
+    public void addItem(Drawable icon, int idNum, byte[] picture, String name_kr, String name_en, double degree, int price, String explain, Drawable arrow) {
         ListViewItem item = new ListViewItem();
 
         item.setIcon(icon);
         item.setIdNum(idNum);
         item.setPicture(picture);
-        item.setName(name);
+        item.setNameKR(name_kr);
+        item.setNameEN(name_en);
         item.setDegree(degree);
         item.setPrice(price);
         item.setExplain(explain);
@@ -92,7 +93,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         listViewItemList.add(item);
 
-        Log.e(getClass().toString(), idNum + "아이템 추가" + name);
+        Log.e(getClass().toString(), idNum + "아이템 추가" + name_kr);
     }
 
 }
