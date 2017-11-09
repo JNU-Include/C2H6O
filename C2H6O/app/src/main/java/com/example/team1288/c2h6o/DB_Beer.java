@@ -43,7 +43,7 @@ public class DB_Beer extends DB_Alcohol {
 //        insert("Kronenbourg 1664", 28, 2800, "이름 존나김");
 //        insert("Pilsner Urguell", 29, 2900, "그만 치고 싶다");
 //        insert("Berliner Kindl Pils", 30, 3000, "ㅇㅅㅇ");
-        insert(R.drawable.beer_guinness, "기네스 드래프트", "Guinness draught", 4.2, 3500, "캔 속에 동그란 공 같은 '액화질소 위젯'이 들어있어 다른 흑맥주와 달리 부드러운 거품을 낸다. 다크 초콜릿과 코코아, 구운 보리의 향이 일품.");
+        insert(R.drawable.beer_guinness, "기네스 드래프트", "Guinness draught", 4.2, 4300, "캔 속에 동그란 공 같은 '액화질소 위젯'이 들어있어 다른 흑맥주와 달리 부드러운 거품을 낸다. 다크 초콜릿과 코코아, 구운 보리의 향이 일품.");
         insert(R.drawable.beer_becks, "벡스", "Beck's", 5.0, 3700, "독일에서 가장 수출량이 많은 맥주. \n신선한 홉의 향과 약간의 단맛이 어우러져 기분 좋은 청량감을 느낄 수 있다.");
         insert(R.drawable.beer_paulaner, "파울라너 헤페바이스", "Paulaner", 5.5, 3000, "달달한 밀의 향과 바나나향, 약간의 감귤 향이 어우러지는 맛으로, 탄산이 적당해 부드럽게 넘어간다. \n소시지와 잘 어울리며 밀맥주 입문용으로 좋다.");
         insert(R.drawable.beer_stella, "스텔라 아르투아", "Stella Artois", 5.0, 3900, "세계 4대 프리미엄 맥주로 꼽히며, 상큼한 파인애플 향이 특징이다.");
