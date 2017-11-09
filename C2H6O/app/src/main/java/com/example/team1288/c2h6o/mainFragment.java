@@ -147,6 +147,7 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
             default:
                 break;
         }
+        Log.d(TAG, "onItemClick: main fragmet 에서 디테일 설정" + fragment);
         fragment.setArguments(args);
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, fragment).commit();
