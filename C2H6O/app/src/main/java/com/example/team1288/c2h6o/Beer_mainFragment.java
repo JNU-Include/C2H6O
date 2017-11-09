@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by ssoso on 2017-07-12.
  */

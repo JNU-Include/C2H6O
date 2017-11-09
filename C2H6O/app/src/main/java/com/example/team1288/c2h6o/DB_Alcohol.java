@@ -59,18 +59,11 @@ public class DB_Alcohol {
 
         try {
             db.execSQL(sql);
-            insertData();
         } catch (SQLException e) {
             db.execSQL("DROP TABLE " + this.tableName + ";");
             db.execSQL(sql);
-            insertData();
         }
 
-    }
-
-    // 데이터 입력
-    private void insertData()
-    {
     }
 
     // insert

@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by ssoso on 2017-08-28.
  */
@@ -19,6 +21,7 @@ import android.widget.ListView;
 public abstract class mainFragment extends Fragment implements AdapterView.OnItemClickListener {
     private SQLiteDatabase db;
     private final int choice;
+    private static DB_Alcohol db_info = null;
 
     public mainFragment()
     {
@@ -33,7 +36,6 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.main_layout, container, false);
-        DB_Alcohol db_info = null;
 
         ListView listview = null;
         ListViewAdapter adapter = null;
@@ -43,25 +45,25 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         switch (choice)
         {
             case 1 : // soju
-                db_info = new DB_Soju(getActivity());
+                if (!(db_info instanceof DB_Soju)) db_info = new DB_Soju(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_soju;
                 break;
 
             case 2 : // beer
-                db_info = new DB_Beer(getActivity());
+                if (!(db_info instanceof DB_Beer)) db_info = new DB_Beer(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_beer;
                 break;
 
             case 3 : // makgeolli
-                db_info = new DB_Makgeolli(getActivity());
+                if (!(db_info instanceof DB_Makgeolli)) db_info = new DB_Makgeolli(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_makgeolli;
                 break;
 
             case 4 : // cocktail
-                db_info = new DB_Cocktail(getActivity());
+                if (!(db_info instanceof DB_Cocktail)) db_info = new DB_Cocktail(getActivity());
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
                 icon = R.drawable.img_cocktail;
                 break;
