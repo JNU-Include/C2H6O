@@ -14,7 +14,9 @@ public class App extends Application {
         super.onCreate();
 
         Typekit.getInstance()
-                .addBold(Typekit.createFromAsset(this, "fonts/JejuHallasan.ttf"))
-                .addCustom1(Typekit.createFromAsset(this, "fonts/Spoqa Han Sans Light.ttf"));
+                .addNormal(Typekit.createFromAsset(this, "fonts/동그라미재단M.ttf"))
+                .addBold(Typekit.createFromAsset(this, "fonts/동그라미재단M.ttf"))
+                .addCustom1(Typekit.createFromAsset(this, "fonts/JejuHallasan.ttf"))
+                .addCustom2(Typekit.createFromAsset(this, "fonts/Spoqa Han Sans Light.ttf"));
     }
 }

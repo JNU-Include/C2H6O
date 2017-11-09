@@ -38,6 +38,7 @@
                 android:id="@+id/tv_alcoholName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="7dp"
                 android:textColor="#111"
                 android:textSize="30dp"
@@ -46,6 +47,7 @@
                 android:id="@+id/tv_alcoholDegree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginBottom="7dp"
                 android:textColor="#111"
                 android:textSize="15dp"
@@ -54,18 +56,32 @@
                 android:id="@+id/tv_alcoholPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginBottom="7dp"
                 android:textColor="#111"
                 android:textSize="15dp"
                 android:text="price"/>
         </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:id="@+id/tv_alcoholExplain"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="#111"
-        android:textSize="15dp"
-        android:text="explain"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="30dp"
+        android:background="#fff">
+        <TextView
+            android:id="@+id/tv_alcoholExplain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="#b5e3d8"
+            android:lineSpacingMultiplier="1.5"
+            android:textColor="#111"
+            android:textSize="15dp"
+            android:text="explain"/>
+    </LinearLayout>
+
 </LinearLayout>
