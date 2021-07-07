@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by ssoso on 2017-08-28.
  */
@@ -19,6 +21,7 @@ import android.widget.ListView;
 public abstract class mainFragment extends Fragment implements AdapterView.OnItemClickListener {
     private SQLiteDatabase db;
     private final int choice;
+    private static DB_Alcohol db_info = null;
 
     public mainFragment()
     {
@@ -33,31 +36,36 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.main_layout, container, false);
-        DB_Alcohol db_info = null;
 
         ListView listview = null;
         ListViewAdapter adapter = null;
 
+        int icon = 0;
+
         switch (choice)
         {
             case 1 : // soju
-                db_info = new DB_Soju(getActivity());
+                db_info = CollectorDB.sojuDB;
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_soju;
                 break;
 
             case 2 : // beer
-                db_info = new DB_Beer(getActivity());
+                db_info = CollectorDB.beerDB;
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_beer;
                 break;
 
             case 3 : // makgeolli
-                db_info = new DB_Makgeolli(getActivity());
+                db_info = CollectorDB.makgeolliDB;
                 listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_makgeolli;
                 break;
 
             case 4 : // cocktail
-//                db_info = new DB_Beer(getActivity());
-//                listview = (ListView) rootView.findViewById(R.id.beerlist);
+                db_info = CollectorDB.cocktailDB;
+                listview = (ListView) rootView.findViewById(R.id.alcoholList);
+                icon = R.drawable.img_cocktail;
                 break;
 
             default:
@@ -79,14 +87,16 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         while (!cursor.isAfterLast())
         {
             int idNum = cursor.getInt(0);
-            String name = cursor.getString(1);
-            int degree = cursor.getInt(2);
-            int price = cursor.getInt(3);
-            String explain = cursor.getString(4);
+            byte[] picture = cursor.getBlob(1);
+            String name_kr = cursor.getString(2);
+            String name_en = cursor.getString(3);
+            double degree = cursor.getDouble(4);
+            int price = cursor.getInt(5);
+            String explain = cursor.getString(6);
 
             // add item
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.pic_beer),
-                    idNum, name, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), icon),
+                    idNum, picture, name_kr, name_en, degree, price, explain, ContextCompat.getDrawable(getActivity(), R.drawable.ic_arrow)) ;
 
             cursor.moveToNext(); // 다음 row
         }
@@ -108,8 +118,10 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
         // name, degree, price, explain 을 넘겨주면서 detail_layout 페이지로 Fragment 교체
         Bundle args = new Bundle();
 
-        args.putString("str_name", item.getName());
-        args.putInt("int_degree", item.getDegree());
+        args.putByteArray("byte_picture", item.getPicture());
+        args.putString("str_name_kr", item.getNameKR());
+        args.putString("str_name_en", item.getNameEN());
+        args.putDouble("double_degree", item.getDegree());
         args.putInt("int_price", item.getPrice());
         args.putString("str_explain", item.getExplain());
 
@@ -129,12 +141,13 @@ public abstract class mainFragment extends Fragment implements AdapterView.OnIte
                 break;
 
             case 4: // cocktail
-//                fragment = new Beer_detailFragment();
+                fragment = new Cocktail_detailFragment();
                 break;
 
             default:
                 break;
         }
+        Log.d(TAG, "onItemClick: main fragmet 에서 디테일 설정" + fragment);
         fragment.setArguments(args);
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, fragment).commit();

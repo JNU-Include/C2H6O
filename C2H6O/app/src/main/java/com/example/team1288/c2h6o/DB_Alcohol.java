@@ -5,7 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by ssoso on 2017-08-28.
@@ -37,39 +46,40 @@ public class DB_Alcohol {
         this.helper = new DBHelper_Alcohol(context, dbName, null, dbVersion);
         db = helper.getWritableDatabase();
 
-        // 테이블 생성
+//         테이블 생성
         String sql = "CREATE TABLE " + this.tableName + " ( "
                 + "_id integer primary key autoincrement, "
-                + "name varchar(50) null, "
-                + "degree int null, "
+                + "picture BLOB null, "
+                + "name_kr varchar(50) null, "
+                + "name_en varchar(50) null, "
+                + "degree double(3,1) null, "
                 + "price int null, "
                 + "explain text null"
                 + " ) ";
 
         try {
             db.execSQL(sql);
-            insertData();
         } catch (SQLException e) {
             db.execSQL("DROP TABLE " + this.tableName + ";");
             db.execSQL(sql);
-            insertData();
         }
 
     }
 
-    // 데이터 입력
-    private void insertData()
-    {
-    }
-
     // insert
-    public void insert(String name, int degree, int price, String explain) {
+    public void insert(int picture ,String name_kr, String name_en, double degree, int price, String explain) {
         db = helper.getWritableDatabase(); // db 객체를 얻어온다. 쓰기 가능
 
         ContentValues values = new ContentValues();
         // db.insert의 매개변수인 values가 ContentValues 변수이므로 그에 맞춤
         // 데이터의 삽입은 put을 이용한다.
-        values.put("name", name);
+        byte[] pic = getByteArrayFromDrawable(getDR(picture));
+//        SQLiteStatement p = db.compileStatement("INSERT INTO " + tableName + " values(?);");
+//        p.bindBlob(1, pic);
+        Log.d(TAG, "알코올 db insert: " + pic);
+        values.put("picture", pic);
+        values.put("name_kr", name_kr);
+        values.put("name_en", name_en);
         values.put("degree", degree);
         values.put("price", price);
         values.put("explain", explain);
@@ -78,54 +88,24 @@ public class DB_Alcohol {
     }
 
     // update
-    public void update (String name, int age) {
-        db = helper.getWritableDatabase(); //db 객체를 얻어온다. 쓰기가능
-
-        ContentValues values = new ContentValues();
-        values.put("age", age);    //age 값을 수정
-        db.update("student", values, "name=?", new String[]{name});
-        /*
-         * new String[] {name} 이런 간략화 형태가 자바에서 가능하다
-         * 당연하지만, 별도로 String[] asdf = {name} 후 사용하는 것도 동일한 결과가 나온다.
-         */
-
-        /*
-         * public int update (String table,
-         * ContentValues values, String whereClause, String[] whereArgs)
-         */
-    }
+    public void update (String name, int age) {   }
 
     // delete
-    public void delete (String name) {
-        db = helper.getWritableDatabase();
-        db.delete("student", "name=?", new String[]{name});
-        Log.i("db", name + "정상적으로 삭제 되었습니다.");
-    }
+    public void delete (String name) { }
 
     // select
-    public void select() {
+    public void select() { }
 
-        // 1) db의 데이터를 읽어와서, 2) 결과 저장, 3)해당 데이터를 꺼내 사용
+    public byte[] getByteArrayFromDrawable(Drawable d) {
+        Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] data = stream.toByteArray();
 
-        db = helper.getReadableDatabase(); // db객체를 얻어온다. 읽기 전용
-        Cursor c = db.query("student", null, null, null, null, null, null);
-
-        /*
-         * 위 결과는 select * from student 가 된다. Cursor는 DB결과를 저장한다. public Cursor
-         * query (String table, String[] columns, String selection, String[]
-         * selectionArgs, String groupBy, String having, String orderBy)
-         */
-
-        while (c.moveToNext()) {
-            // c의 int가져와라 ( c의 컬럼 중 id) 인 것의 형태이다.
-            int _id = c.getInt(c.getColumnIndex("_id"));
-            String name = c.getString(c.getColumnIndex("name"));
-            int age = c.getInt(c.getColumnIndex("age"));
-            String address = c.getString(c.getColumnIndex("address"));
-            Log.i("db", "id: " + _id + ", name : " + name + ", age : " + age
-                    + ", address : " + address);
-        }
+        return data;
     }
+
+    public Drawable getDR(int drName){ return  ContextCompat.getDrawable(context, drName);  }
 
     public SQLiteDatabase getDB() { return db; }
     public void setTableName(String tn) { this.tableName = tn; }

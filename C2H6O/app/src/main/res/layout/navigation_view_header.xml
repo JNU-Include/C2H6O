@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="192dp"
@@ -8,10 +9,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nav_header_textview"
-        android:text="HEADER"
-        android:textSize="40sp"
+        android:text="알코올의 정석"
+        android:textSize="35dp"
         android:textColor="@color/white"
+        android:textStyle="bold"
+        app:font="custom1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="대학생들의 음주교과서"
+        android:textSize="14dp"
+        android:textColor="@color/white"
+        app:font="custom2"
+        android:layout_below="@+id/nav_header_textview"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

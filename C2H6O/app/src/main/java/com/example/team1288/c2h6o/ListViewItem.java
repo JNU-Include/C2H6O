@@ -2,6 +2,9 @@ package com.example.team1288.c2h6o;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 /**
  * Created by ssoso on 2017-07-18.
  */
@@ -10,8 +13,10 @@ public class ListViewItem {
     private Drawable icon;
     private Drawable arrow;
     private int idNum;
-    private String name;
-    private int degree;
+    private byte[] picture;
+    private String name_kr;
+    private String name_en;
+    private double degree;
     private int price;
     private String explain;
 
@@ -24,11 +29,17 @@ public class ListViewItem {
         this.arrow = arrow;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPicture(byte[] picture) { this.picture = picture; }
+
+    public void setNameKR(String name_kr) {
+        this.name_kr = name_kr;
     }
 
-    public void setDegree(int degree) {
+    public void setNameEN(String name_en) {
+        this.name_en = name_en;
+    }
+
+    public void setDegree(double degree) {
         this.degree = degree;
     }
 
@@ -52,11 +63,17 @@ public class ListViewItem {
         return arrow;
     }
 
-    public String getName() {
-        return name;
+    public byte[] getPicture() { return picture; }
+
+    public String getNameKR() {
+        return name_kr;
     }
 
-    public int getDegree() {
+    public String getNameEN() {
+        return name_en;
+    }
+
+    public double getDegree() {
         return degree;
     }
 

@@ -1,5 +1,6 @@
 package com.example.team1288.c2h6o;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.tsengvn.typekit.TypekitContextWrapper;
+
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -19,12 +22,16 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
 
     private final long FINISH_INTERVAL_TIME = 2000;
-    private long   backPressedTime = 0;
+    private long backPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        CollectorDB collectorDB = new CollectorDB(this);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Home_Fragment()).commit();
 
@@ -61,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Makgeolli_mainFragment()).commit();
                         return true;
                     case R.id.li_cocktail:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Cocktail_mainFragment()).commit();
                         return true;
 
                     default:
@@ -127,9 +135,15 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Beer_mainFragment()).commit();
         } else if (fragment instanceof Makgeolli_detailFragment) {
             getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Makgeolli_mainFragment()).commit();
+        } else if (fragment instanceof Cocktail_detailFragment) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.l_main_fragment, new Cocktail_mainFragment()).commit();
         }
 
 
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
 } // end class

@@ -30,7 +30,7 @@ public class Home_Fragment extends Fragment implements Button.OnClickListener {
         btn_goSoju.setOnClickListener(this);
         btn_goBeer.setOnClickListener(this);
         btn_goMakgeolli.setOnClickListener(this);
-//        btn_goCocktail.setOnClickListener(this);
+        btn_goCocktail.setOnClickListener(this);
         return rootView;
     }
 
@@ -53,7 +53,7 @@ public class Home_Fragment extends Fragment implements Button.OnClickListener {
                 break;
 
             case R.id.ib_cocktail:
-//                fragment = new Cocktail_mainFragment();
+                fragment = new Cocktail_mainFragment();
                 break;
 
             default:
